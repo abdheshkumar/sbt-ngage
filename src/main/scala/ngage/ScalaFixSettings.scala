@@ -1,13 +1,15 @@
 package ngage
-import sbt.{ SettingKey, TaskKey }
+import sbt._
 
 trait ScalaFixSettings {
-  private val pluginConfigFileName    = "scalafix.conf"
+  private val pluginConfigFileName = "scalafix.conf"
   private val generatedConfigFileName = ".scalafix.conf"
-  val scalafixConfigFileCreated       = TaskKey[Boolean]("scalafixConfigFileCreated")
+  val scalafixConfigFileCreated = taskKey[Boolean](
+    "Check scalafix file `.scalafix.conf` file has created or not."
+  )
 
   val scalafixGenerateConfigOnLoad =
-    SettingKey[Unit]("scalafixGenerateConfigOnLoad")
+    settingKey[Unit]("Create `.scalafix.conf` file")
 
   val buildSettingsForScalaFix = Seq(
     scalafixGenerateConfigOnLoad := FileIOUtil.generateConfigFileFormSource(

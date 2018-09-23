@@ -9,10 +9,10 @@ trait ScalafmtSettings {
   private val generatedConfigFileName = ".scalafmt.conf"
 
   val scalafmtConfigFileCreated =
-    TaskKey[Boolean]("scalafmtConfigFileCreated")
+    taskKey[Boolean]("Check `.scalafmt.conf` file has created or not.")
 
   val scalafmtGenerateConfigOnLoad =
-    SettingKey[Unit]("scalafmtGenerateConfigOnLoad")
+    settingKey[Unit]("Create `.scalafmt.conf` file in root directory")
 
   val buildSettingsForScalafmt = Seq(
     scalafmtOnCompile := true,
