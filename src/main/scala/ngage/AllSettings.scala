@@ -2,7 +2,7 @@ package ngage
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import sbt.Keys._
 import sbt._
-import sbt.{ Compile, CrossVersion, Project, Resolver, Setting, State, Test }
+import sbt.{Compile, CrossVersion, Project, Resolver, Setting, State, Test}
 import sbtunidoc.BaseUnidocPlugin.autoImport._
 import sbtunidoc.ScalaUnidocPlugin.autoImport._
 import scoverage.ScoverageKeys
@@ -18,10 +18,10 @@ trait AllSettings
   val scoverageMinimum = 80
 
   /**
-   * Settings common to all projects.
-   *
-   * Adds Sonatype release repository and "withCachedResolution" to the update options
-   */
+    * Settings common to all projects.
+    *
+    * Adds Sonatype release repository and "withCachedResolution" to the update options
+    */
   lazy val sharedCommonSettings = Seq(
     resolvers ++= Seq(
       Resolver.sonatypeRepo("releases"),
@@ -39,10 +39,10 @@ trait AllSettings
   )
 
   /**
-   * Scala JS settings shared by many projects.
-   *
-   * Forces the use of node.js in tests and batchmode under travis
-   */
+    * Scala JS settings shared by many projects.
+    *
+    * Forces the use of node.js in tests and batchmode under travis
+    */
   lazy val sharedJsSettings = Seq(
     scalaJSStage in Global := FastOptStage,
     parallelExecution := false,
@@ -50,10 +50,10 @@ trait AllSettings
   )
 
   /**
-   * Build settings common to all projects.
-   *
-   * scala version and cross versions
-   */
+    * Build settings common to all projects.
+    *
+    * scala version and cross versions
+    */
   val sharedBuildSettings = Seq(
     organization := "uk.callhandling",
     organizationName := "Call Handling",
@@ -107,11 +107,11 @@ trait AllSettings
   )
 
   /**
-   * Add a "pretty shell prompt".
-   */
+    * Add a "pretty shell prompt".
+    */
   lazy val shellPromptSettings = Seq(shellPrompt := { s: State =>
-    val c     = scala.Console
-    val blue  = c.RESET + c.BLUE + c.BOLD
+    val c = scala.Console
+    val blue = c.RESET + c.BLUE + c.BOLD
     val white = c.RESET + c.BOLD
 
     val projectName = Project.extract(s).currentProject.id

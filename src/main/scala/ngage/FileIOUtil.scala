@@ -1,7 +1,7 @@
 package ngage
-import java.nio.file.{ Files, Paths }
+import java.nio.file.{Files, Paths}
 
-import sbt.{ IO, MessageOnlyException, file }
+import sbt.{IO, MessageOnlyException, file}
 
 import scala.io.Source
 

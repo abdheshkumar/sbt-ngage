@@ -5,7 +5,7 @@ import sbt._
 
 trait ScalafmtSettings {
 
-  private val pluginConfigFileName    = "scalafmt.conf"
+  private val pluginConfigFileName = "scalafmt.conf"
   private val generatedConfigFileName = ".scalafmt.conf"
 
   val scalafmtConfigFileCreated =
@@ -20,7 +20,8 @@ trait ScalafmtSettings {
       pluginConfigFileName,
       generatedConfigFileName
     ),
-    scalafmtConfigFileCreated := FileIOUtil.checkIfFileIsCreated(generatedConfigFileName)
+    scalafmtConfigFileCreated := FileIOUtil.checkIfFileIsCreated(
+      generatedConfigFileName)
   )
 
 }
